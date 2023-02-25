@@ -54,10 +54,9 @@ let span2  = document.querySelector('.span2 ');
 let span3  = document.querySelector('.span3 ');
 let idx = 0;
 
-anm.forEach((item)=>{
-    
+anm.forEach((item)=>{    
     item.addEventListener('click', (e)=>{
-        
+        reset()
         if( e.target.classList.contains('span1') ){
             anm.forEach((item)=>{
                 item.classList.remove('black')
@@ -66,7 +65,7 @@ anm.forEach((item)=>{
             marketSoundbox.forEach((item)=>{
                 item.style.transform = 'translate(0)'
             })
-            reset()
+            
         }else if( e.target.classList.contains('span2') ){
             anm.forEach((item)=>{
                 item.classList.remove('black')
@@ -75,7 +74,7 @@ anm.forEach((item)=>{
             marketSoundbox.forEach((item)=>{
                 item.style.transform = 'translate(-100%)'
             })
-            reset()
+            
         }else if( e.target.classList.contains('span3') ){
             
             anm.forEach((item)=>{
@@ -85,10 +84,11 @@ anm.forEach((item)=>{
             marketSoundbox.forEach((item)=>{
                 item.style.transform = 'translate(-200%)'
             })
-            reset()
+           
         }
     })
 })
+
 function sayHello() {
     marketSoundbox.forEach((item)=>{
         if(idx < 3){
@@ -114,6 +114,7 @@ function sayHello() {
         }
     })
 };
+
 let interval =  setInterval(run, 3000);
 function run(){
     idx++;
@@ -122,7 +123,7 @@ function run(){
 
 function reset(){
     clearInterval(interval);
-    let interval =  setInterval(run, 3000);
+    interval =  setInterval(run, 3000);
 }
 
 
@@ -133,7 +134,6 @@ let scroll = ScrollReveal({
     reset: true,
     opacity:0
 });
-// ().reveal
 
 scroll.reveal(`.soundbox1`, {
     interval: 200,
